@@ -18,11 +18,16 @@ ghcr.io/pinto0309/openvino2tensorflow:latest
 sudo chmod 777 /dev/video4 && python3 demo_video.py
 """
 
+'''
+pip install optimum[onnxruntime-gpu] NOT onnxruntime
+'''
+
 import numpy as np
 import cv2
 import os
 import argparse
 from math import cos, sin
+import torch
 import onnxruntime
 import numba as nb
 
@@ -377,7 +382,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--device",
         type=str,
-        default='0',
+        default='/home/janus/Documents/GitHub/HeadPoseEstimation-WHENet-yolov4-onnx-openvino/footage1.mp4',
         help='Path of the mp4 file or device number of the USB camera. Default: 0',
     )
     parser.add_argument(
